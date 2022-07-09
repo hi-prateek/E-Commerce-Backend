@@ -3,7 +3,7 @@ const { createConnection } = require("mongoose");
 const mongoose = require(mongoose)
 const { ObjectId } = mongoose.Schema;
 
-const ProcuctIncartSchema = new mongoose.Schema({
+const ProductIncartSchema = new mongoose.Schema({
     products:{
         type: ObjectId,
         ref: "Product"
@@ -13,7 +13,7 @@ const ProcuctIncartSchema = new mongoose.Schema({
     price:Number
 })
 
-const ProductCart = mongoose.model("ProductCart",ProcuctIncartSchema)
+const ProductCart = mongoose.model("ProductCart",ProductIncartSchema)
 
 const OrderSchema = new mongoose.Schema({
     products: [ProductIncartSchema],
