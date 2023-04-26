@@ -1,6 +1,7 @@
 const { createConnection } = require("mongoose");
 
-const mongoose = require(mongoose)
+const mongoose = require("mongoose")
+
 const { ObjectId } = mongoose.Schema;
 
 const ProductIncartSchema = new mongoose.Schema({
