@@ -16,6 +16,7 @@ const userRoutes = require('./routes/user');
 const orderRoutes = require('./routes/order');
 const paymentRoutes = require('./routes/payment');
 const categoryRoutes = require('./routes/category');
+const wishlistRoutes = require('./routes/wishlist');
 
 mongoose
   .connect(process.env.DB_URI, {
@@ -36,7 +37,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(cookieParser());
 app.use(helmet());
-app.use(morgan('tiny'));
+app.use(morgan('combined'));
 app.use(compression());
 app.use(
   rateLimit({
@@ -51,6 +52,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/categories', categoryRoutes);
+app.use('/api/wishlist', wishlistRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
